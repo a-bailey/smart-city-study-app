@@ -29,7 +29,10 @@
             android:name=".WelcomeActivity"
             android:theme="@style/Theme.SmartCityStudyApp.NoActionBar">
         </activity>
-
+        <service
+            android:name=".MainActivity"
+            android:foregroundServiceType="location">
+        </service>
     </application>
 
 </manifest>
