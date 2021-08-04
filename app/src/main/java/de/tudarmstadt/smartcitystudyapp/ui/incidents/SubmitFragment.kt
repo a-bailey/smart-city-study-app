@@ -214,9 +214,6 @@ class SubmitFragment : Fragment() {
             MY_PERMISSIONS_REQUEST_LOCATION -> {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    // permission was granted, yay! Do the
-                    // location-related task you need to do.
                     if (ContextCompat.checkSelfPermission(
                             requireContext(),
                             android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -228,9 +225,7 @@ class SubmitFragment : Fragment() {
                             Looper.getMainLooper()
                         )
                     }
-
                 } else {
-
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                     Toast.makeText(context, "permission denied", Toast.LENGTH_LONG).show()
