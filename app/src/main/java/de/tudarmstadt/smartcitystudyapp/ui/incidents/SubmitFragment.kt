@@ -1,9 +1,11 @@
 package de.tudarmstadt.smartcitystudyapp.ui.incidents
 
 import android.content.*
+import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,12 +13,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.MainActivity
 import de.tudarmstadt.smartcitystudyapp.R
@@ -32,7 +41,16 @@ class SubmitFragment : Fragment() {
     private val button_disabled_color = R.color.grey
     private var br: BroadcastReceiver? = null
     private var filter: IntentFilter? = null
-
+    private var fusedLocationProvider: FusedLocationProviderClient? = null
+    private val locationRequest: LocationRequest =  LocationRequest.create().apply {
+        interval = 30
+        fastestInterval = 10
+        priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
+        maxWaitTime= 60
+    }
+    companion object {
+        private const val MY_PERMISSIONS_REQUEST_LOCATION = 99
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +63,8 @@ class SubmitFragment : Fragment() {
         val galleryButton = root.findViewById<Button>(R.id.incidents_button_gallery)
         val cameraButton = root.findViewById<Button>(R.id.incidents_button_camera)
         val sendPhotoSwitch = root.findViewById<SwitchCompat>(R.id.switch_send_photo)
-        var submitButton =  root.findViewById<Button>(R.id.incidents_button_submit)
+        val submitButton =  root.findViewById<Button>(R.id.incidents_button_submit)
+        val locationSwitch = root.findViewById<SwitchCompat>(R.id.switch_send_location)
         filter = IntentFilter(getString(R.string.broadcast_network_status)).apply{
             addAction(R.string.broadcast_network_status.toString())
         }
@@ -63,6 +82,14 @@ class SubmitFragment : Fragment() {
                 false -> {
                     galleryButton.visibility = View.INVISIBLE
                     cameraButton.visibility = View.INVISIBLE
+                }
+            }
+        }
+
+        locationSwitch.setOnClickListener {
+            when (locationSwitch.isChecked) {
+                true -> {
+                    requestLocationPermission()
                 }
             }
         }
@@ -141,6 +168,75 @@ class SubmitFragment : Fragment() {
         } else {
             button.setBackgroundColor(resources.getColor(color));
             button.invalidate();
+        }
+    }
+
+    private fun requestLocationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(
+                    android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                ),
+                MY_PERMISSIONS_REQUEST_LOCATION
+            )
+        } else {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                MY_PERMISSIONS_REQUEST_LOCATION
+            )
+        }
+    }
+
+    private var locationCallback: LocationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            val locationList = locationResult.locations
+            if (locationList.isNotEmpty()) {
+                //The last location in the list is the newest
+                val location = locationList.last()
+                Toast.makeText(
+                    context,
+                    "Got Location: " + location.toString(),
+                    Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            MY_PERMISSIONS_REQUEST_LOCATION -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // location-related task you need to do.
+                    if (ContextCompat.checkSelfPermission(
+                            requireContext(),
+                            android.Manifest.permission.ACCESS_FINE_LOCATION
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        fusedLocationProvider?.requestLocationUpdates(
+                            locationRequest,
+                            locationCallback,
+                            Looper.getMainLooper()
+                        )
+                    }
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(context, "permission denied", Toast.LENGTH_LONG).show()
+                }
+                return
+            }
         }
     }
 }
