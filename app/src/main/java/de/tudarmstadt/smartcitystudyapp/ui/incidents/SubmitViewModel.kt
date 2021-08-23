@@ -33,8 +33,6 @@ class SubmitViewModel @ViewModelInject constructor(
             println("Sending report") //TODO: Remove debug reports
             var returnVal = ""
 
-            Toast.makeText(context, R.string.report_prepare_toast, Toast.LENGTH_SHORT).show()
-
             viewModelScope.launch() {
                 Looper.myLooper() ?: Looper.prepare()
 
@@ -46,19 +44,26 @@ class SubmitViewModel @ViewModelInject constructor(
                     source = source
                 )
 
-                withContext(Dispatchers.IO) {
-                    returnVal = reportService.sendReport(report)
-                    Log.i("sendReport Result", returnVal)
+                if(report.message != "" || report.location || report.picture) {
+                    Toast.makeText(context, R.string.report_prepare_toast, Toast.LENGTH_SHORT).show()
+
+                    withContext(Dispatchers.IO) {
+                        returnVal = reportService.sendReport(report)
+                        Log.i("sendReport Result", returnVal)
+                    }
+
+                    withContext(Dispatchers.Main) {
+                        if (!returnVal.contains("Post failed with code")) {
+                            Toast.makeText(context, R.string.report_sent_success_toast, Toast.LENGTH_LONG).show()
+                            view.findNavController().navigate(R.id.action_global_home)
+                        } else {
+                            Toast.makeText(context, R.string.report_sent_error_toast, Toast.LENGTH_LONG).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(context, R.string.report_situation_missing, Toast.LENGTH_LONG).show()
                 }
 
-                withContext(Dispatchers.Main) {
-                    if (!returnVal.contains("Post failed with code")) {
-                        Toast.makeText(context, R.string.report_sent_success_toast, Toast.LENGTH_LONG).show()
-                        view.findNavController().navigate(R.id.action_global_home)
-                    } else {
-                        Toast.makeText(context, R.string.report_sent_error_toast, Toast.LENGTH_LONG).show()
-                    }
-                }
             }
         } else {
             Toast.makeText(context, context.getText(R.string.incidents_submit_connectivity_toast), Toast.LENGTH_LONG).show()

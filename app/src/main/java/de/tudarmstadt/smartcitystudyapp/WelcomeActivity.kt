@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.model.User
 import de.tudarmstadt.smartcitystudyapp.services.UserService
 import kotlinx.coroutines.launch
+import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -90,7 +91,8 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun launchHomeScreen() {
-        if (userId == null || userId!!.isEmpty()) {
+        val userIdmatch = Pattern.matches("[A-Z]{6}", userId!!)
+        if (userId == null || userId!!.isEmpty() || !userIdmatch) {
             val toast = Toast.makeText(this, R.string.user_id_not_set_toast, Toast.LENGTH_SHORT)
             toast.show()
         } else {

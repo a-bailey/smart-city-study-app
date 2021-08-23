@@ -69,7 +69,7 @@ class SubmitFragment : Fragment() {
             addAction(R.string.broadcast_network_status.toString())
         }
 
-        root.findViewById<EditText>(R.id.report_text).setText(suggestion)
+        root.findViewById<EditText>(R.id.report_text).hint = suggestion
 
         submitButton.setOnClickListener { submitViewModel.sendReport(root) }
 
