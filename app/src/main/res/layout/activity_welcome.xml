@@ -11,11 +11,16 @@
         android:orientation="vertical"
         android:background="@drawable/gradient"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"

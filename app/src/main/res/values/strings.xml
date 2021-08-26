@@ -42,7 +42,28 @@
     <string name="slide_2_description_2">Insgesamt ist das Ziel unserer App eine umfangreiche Datenbank mithilfe offener Daten der Stadt zu kreieren, um Probleme und Missstände schneller erkennen und darauf reagieren zu können.</string>
     <string name="slide_3_title">Anleitung zum \n Menü:</string>
     <string name="slide_3_description">Die wichtigsten Funktionen der App kurz erklärt:</string>
-    <string name="slide_3_description_two">Im Reiter Ereignisse kannst du Meldungen über Probleme und Auffälligkeiten in deiner Umgebung machen. Dazu hast du die Möglichkeit deine GPS-Daten durchzugeben, einen kurzen Text anzugeben oder/und ein Foto hochzuladen. Falls keine konkreten Ereignisse in der Umgebung auftreten, kannst du dir auch erstmal die Vorschläge anschauen, die am häufigsten in anderen Städten gemeldet wurden.</string>
+    <string name="slide_3_description_two">Im Profil siehst du deine aktuellen Punkte und
+Anzahl deiner bereits gemachten Meldungen. Du
+kannst außerdem deinen Avatar upgraden, wenn
+du mehr Punkte machst! Punkte bekommst du,
+wenn du Ereignisse meldest.
+Dein eigenes Team besteht aus anderen App
+Nutzern die in deiner Umgebung ebenfalls aktiv
+sind. Die anderen Teams sind aus weiter entfernt
+liegenden Gebieten.\n\n
+Im Reiter Ereignisse kannst du Meldungen über
+Probleme und Auffälligkeiten in deiner Umgebung
+machen.
+Falls du dir unsicher bist, was du melden könntest,
+kannst du dir auch erstmal die Vorschläge anschauen, die am häufigsten in anderen Städten
+gemeldet wurden.\n\n
+Im Aktivitäten Bereich kannst du dir Meldungen
+anderer App Nutzer anschauen und die Punkte
+deines Teams und anderer Teams anschauen.\n\n
+Im Meldungen Bereich wirst du über Geschehnisse in deiner Umgebung informiert.\n\n
+Du kannst nun loslegen! Beachte, dass die Meldungen nicht nur von deinem Wohnort gesendet
+werden können. Du kannst von überall aus Meldungen machen. Anhand deines Wohnorts entscheidet sich nur, welchem Team du zugeordnet
+wirst.</string>
     <string name="slide_2_name_hint">Namen eingeben</string>
     <string name="slide_2_city_hint">Wohnort eingeben</string>
 

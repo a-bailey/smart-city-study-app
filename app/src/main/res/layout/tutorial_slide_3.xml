@@ -42,110 +42,44 @@
         android:layout_marginBottom="5dp"
         android:background="@color/main_blue" />
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/slide_3_description"/>
+        android:orientation="vertical"
+        android:paddingBottom="150dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/slide_3_description_two"/>
-
-    <View
-        android:layout_width="250dp"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="5dp"
-        android:background="@color/grey" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:text="@string/slide_1_description"
-        android:textStyle="bold" />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="6">
-
-        <EditText
-            android:id="@+id/user_id_entry_field"
-            android:layout_width="250dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
-            android:cursorVisible="true"
-            android:text="ABCDEF"
-            android:textColor="@color/black"
             android:layout_marginLeft="80dp"
-            android:backgroundTint="@color/white"
-            android:hint="@string/code_hint"/>
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/slide_3_description"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="20">
-
-        <EditText
-            android:id="@+id/user_name_entry_field"
-            android:layout_width="250dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
-            android:cursorVisible="true"
-            android:text="Alex"
-            android:textColor="@color/black"
             android:layout_marginLeft="80dp"
-            android:backgroundTint="@color/white"
-            android:hint="@string/slide_2_name_hint"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="20">
-
-        <EditText
-            android:id="@+id/city_entry_field"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:cursorVisible="true"
             android:textColor="@color/black"
-            android:text="Grafenau"
-            android:layout_marginLeft="80dp"
-            android:backgroundTint="@color/white"
-            android:hint="@string/slide_2_city_hint"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/slide_3_description_two"/>
+    </LinearLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </ScrollView>
 
-</LinearLayout>
+
+
+
+
+    </LinearLayout>
