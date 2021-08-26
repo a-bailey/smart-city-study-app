@@ -35,6 +35,6 @@ class DefaultUserService @Inject constructor(
     }
 
     override suspend fun addPoints(user: User, points: Int) {
-        userDao.save(User(user.userId, user.userName, user.wohnort, user.points+points))
+        userDao.save(User(user.userId, user.userName, user.wohnort, user.points+PointType.USER.points))
     }
 }
