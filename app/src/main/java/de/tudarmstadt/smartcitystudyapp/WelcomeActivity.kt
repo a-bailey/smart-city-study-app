@@ -51,19 +51,21 @@ class WelcomeActivity : AppCompatActivity() {
         btnNext = findViewById<View>(R.id.btn_next) as Button
         layouts = intArrayOf(
             R.layout.tutorial_slide_1,
-            R.layout.tutorial_slide_2
+            R.layout.tutorial_slide_2,
+            R.layout.tutorial_slide_3,
         )
         addBottomDots(0)
         changeStatusBarColor()
         myViewPagerAdapter = MyViewPagerAdapter()
         viewPager!!.adapter = myViewPagerAdapter
         viewPager!!.addOnPageChangeListener(viewPagerPageChangeListener)
-
+        viewPager!!.offscreenPageLimit = 10
         btnNext!!.setOnClickListener {
             val current = getNextItem()
             if (current == layouts.size) {
                 val userIdEntryField = findViewById<EditText>(R.id.user_id_entry_field)
                 userId = userIdEntryField.text.toString()
+
                 launchHomeScreen()
             } else if (current < layouts.size) {
                 viewPager!!.currentItem = current

@@ -17,11 +17,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="40dp"
+        android:layout_height="732dp"
+
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
         android:orientation="vertical">
 
 
@@ -42,65 +42,43 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:text="@string/slide_1_heading"
+            android:textColor="@color/black"
             android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/slide_1_description"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            app:counterEnabled="true"
+            app:counterMaxLength="6">
 
-            <ImageView
-                android:id="@+id/help_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/help"
-                android:adjustViewBounds="true"/>
-
-            <TextView
-                android:id="@+id/heading"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/user_id_entry_field"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/help_icon"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/slide_2_title"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:layout_marginStart="80dp"
+                android:layout_marginLeft="80dp"
+                android:backgroundTint="@color/white"
+                android:cursorVisible="true"
+                android:hint="@string/code_hint"
+                android:textColor="@color/black" />
 
-        </RelativeLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/main_blue" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:text="@string/slide_2_description"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:text="@string/slide_2_description_2"/>
     </LinearLayout>
+
+
 </RelativeLayout>

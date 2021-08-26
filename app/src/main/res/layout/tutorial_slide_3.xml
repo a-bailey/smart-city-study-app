@@ -25,10 +25,10 @@
             android:id="@+id/heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/help_icon"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/help_icon"
-            android:text="@string/slide_2_title"
+            android:text="@string/slide_3_title"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -42,26 +42,44 @@
         android:layout_marginBottom="5dp"
         android:background="@color/main_blue" />
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/slide_2_description"/>
+        android:orientation="vertical"
+        android:paddingBottom="150dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/slide_2_description_2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/slide_3_description"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/slide_3_description_two"/>
+    </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+    </LinearLayout>
