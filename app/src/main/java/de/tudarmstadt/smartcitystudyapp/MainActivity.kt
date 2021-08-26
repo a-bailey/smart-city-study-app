@@ -73,6 +73,7 @@ class MainActivity() : AppCompatActivity(), SharedPreferences.OnSharedPreference
                 R.id.nav_incidents,
                 R.id.nav_activities,
                 R.id.nav_reports,
+                R.id.nav_teamactivity,
                 R.id.nav_help,
                 R.id.nav_site_notice
             ), drawerLayout

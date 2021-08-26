@@ -8,16 +8,18 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/fragment_reports.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/fragment_site_notice.xml" value="0.3255208333333333" />
+        <entry key="app/src/main/res/layout/fragment_teamactivity.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/fragment_thankyou.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/help_slide_2.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/tutorial_slide_1.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/tutorial_slide_2.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/tutorial_slide_3.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/menu/main.xml" value="0.3255208333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

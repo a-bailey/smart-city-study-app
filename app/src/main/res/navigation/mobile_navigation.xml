@@ -51,6 +51,14 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_teamactivity"
+        android:name="de.tudarmstadt.smartcitystudyapp.ui.teamactivity.TeamActivityFragment"
+        android:label="@string/teamactivity"
+        tools:layout="@layout/fragment_teamactivity" >
+
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_help"
         android:name="de.tudarmstadt.smartcitystudyapp.ui.help.HelpFragment"
         android:label="@string/help"

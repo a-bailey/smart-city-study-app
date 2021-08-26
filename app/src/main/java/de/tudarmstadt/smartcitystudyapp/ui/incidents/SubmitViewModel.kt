@@ -59,7 +59,7 @@ class SubmitViewModel @ViewModelInject constructor(
                             withContext(Dispatchers.IO) {
                                 userService.addPoints(userService.getCurrentUser()!!, 320)
                             }
-                            view.findNavController().navigate(R.id.action_global_home)
+
                             view.findNavController().navigate(R.id.action_submit_to_thankyou)
                         } else {
                             Toast.makeText(context, R.string.report_sent_error_toast, Toast.LENGTH_LONG).show()
