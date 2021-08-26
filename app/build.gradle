@@ -11,7 +11,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "de.tudarmstadt.smartcitystudyapp"
+        applicationId "de.tudarmstadt.smartcitystudyapp.base"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 2
