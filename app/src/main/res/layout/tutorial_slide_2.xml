@@ -98,6 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:cursorVisible="true"
+            android:text="ABCDEF"
             android:textColor="@color/black"
             android:layout_marginLeft="80dp"
             android:backgroundTint="@color/white"
@@ -118,6 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:cursorVisible="true"
+            android:text="Alex"
             android:textColor="@color/black"
             android:layout_marginLeft="80dp"
             android:backgroundTint="@color/white"
@@ -139,6 +141,7 @@
             android:layout_marginStart="80dp"
             android:cursorVisible="true"
             android:textColor="@color/black"
+            android:text="Grafenau"
             android:layout_marginLeft="80dp"
             android:backgroundTint="@color/white"
             android:hint="@string/slide_2_city_hint"/>

@@ -17,7 +17,12 @@
         android:id="@+id/nav_profile"
         android:name="de.tudarmstadt.smartcitystudyapp.ui.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_nav_profile_to_nav_incidents"
+            app:destination="@id/nav_incidents" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_incidents"
@@ -39,7 +44,11 @@
         android:id="@+id/nav_reports"
         android:name="de.tudarmstadt.smartcitystudyapp.ui.reports.ReportsFragment"
         android:label="@string/reports"
-        tools:layout="@layout/fragment_reports" />
+        tools:layout="@layout/fragment_reports" >
+        <action
+            android:id="@+id/action_nav_reports_to_nav_incidents"
+            app:destination="@id/nav_incidents" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_help"

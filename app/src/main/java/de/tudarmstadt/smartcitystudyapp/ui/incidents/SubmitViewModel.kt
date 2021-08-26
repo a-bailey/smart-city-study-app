@@ -1,7 +1,5 @@
 package de.tudarmstadt.smartcitystudyapp.ui.incidents
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Looper
 import android.util.Log
 import android.view.View
@@ -28,14 +26,12 @@ class SubmitViewModel @ViewModelInject constructor(
 ) : ViewModel() {
     var source: String = SOURCE_OTHER
 
-    fun sendReport(view: View, finalActionId: Int) {
+    fun sendReport(view: View) {
         val context = view.context
 
         if(MainActivity.networkAvailable) {
             println("Sending report") //TODO: Remove debug reports
             var returnVal = ""
-
-            Toast.makeText(context, R.string.report_prepare_toast, Toast.LENGTH_SHORT).show()
 
             viewModelScope.launch() {
                 Looper.myLooper() ?: Looper.prepare()
@@ -48,35 +44,31 @@ class SubmitViewModel @ViewModelInject constructor(
                     source = source
                 )
 
-                withContext(Dispatchers.IO) {
-                    returnVal = reportService.sendReport(report)
-                    Log.i("sendReport Result", returnVal)
-                }
+                if(report.message != "" || report.location || report.picture) {
+                    Toast.makeText(context, R.string.report_prepare_toast, Toast.LENGTH_SHORT).show()
 
-                withContext(Dispatchers.Main) {
-                    if (!returnVal.contains("Post failed with code")) {
-                        Toast.makeText(context, R.string.report_sent_success_toast, Toast.LENGTH_LONG).show()
-                        if (source == "Notification") {
-                            val sharedPref = context.getSharedPreferences("de.tudarmstadt.smartcitystudyapp.shared_key", Context.MODE_PRIVATE)
-                            val ed: SharedPreferences.Editor = sharedPref.edit()
-
-                            for (key in sharedPref.all.keys) {
-                                if (key == "notifications") {
-                                    ed.putInt("notifications", 0)
-                                    continue
-                                }
-                                var value = sharedPref.all.getValue(key)
-                                if (value != 0 || value != 99) {
-                                    ed.putInt(key, 99)
-                                    Log.d("notification","send")
-                                }
-                            }
-                        }
-                        view.findNavController().navigate(finalActionId)
-                    } else {
-                        Toast.makeText(context, R.string.report_sent_error_toast, Toast.LENGTH_LONG).show()
+                    withContext(Dispatchers.IO) {
+                        returnVal = reportService.sendReport(report)
+                        Log.i("sendReport Result", returnVal)
                     }
+
+                    withContext(Dispatchers.Main) {
+                        if (!returnVal.contains("Post failed with code")) {
+                            Toast.makeText(context, R.string.report_sent_success_toast, Toast.LENGTH_LONG).show()
+
+                            withContext(Dispatchers.IO) {
+                                userService.addPoints(userService.getCurrentUser()!!, 320)
+                            }
+                            view.findNavController().navigate(R.id.action_global_home)
+                            view.findNavController().navigate(R.id.action_submit_to_thankyou)
+                        } else {
+                            Toast.makeText(context, R.string.report_sent_error_toast, Toast.LENGTH_LONG).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(context, R.string.report_situation_missing, Toast.LENGTH_LONG).show()
                 }
+
             }
         } else {
             Toast.makeText(context, context.getText(R.string.incidents_submit_connectivity_toast), Toast.LENGTH_LONG).show()

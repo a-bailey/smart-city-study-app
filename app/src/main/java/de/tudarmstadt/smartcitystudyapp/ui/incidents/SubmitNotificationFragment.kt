@@ -64,7 +64,7 @@ class SubmitNotificationFragment : Fragment() {
         root.findViewById<EditText>(R.id.report_text).setText(suggestion)
 
         submitButton.setOnClickListener {
-            submitViewModel.sendReport(root, R.id.action_submit_notification_to_thankyou)
+            submitViewModel.sendReport(root)
         }
 
         nothingToReportSwitch.setOnClickListener {

@@ -10,7 +10,7 @@ class DefaultUserService @Inject constructor(
     private val webservice: UserWebservice,
     private val userDao: UserDao
 ) : UserService {
-    override suspend fun getUserId(): String? = withContext(Dispatchers.IO){
+    override suspend fun getUserId(): String? = withContext(Dispatchers.IO) {
         userDao.loadAll().let {
             if (it.isEmpty()) {
                 null
@@ -20,11 +20,21 @@ class DefaultUserService @Inject constructor(
         }
     }
 
+    override suspend fun getCurrentUser(): User? = withContext(Dispatchers.IO) {
+        userDao.loadAll().let {
+            if (it.isEmpty()) {
+                null
+            } else {
+                it.first()
+            }
+        }
+    }
+
     override suspend fun setUser(user: User) = withContext(Dispatchers.IO){
         userDao.save(user)
     }
 
     override suspend fun addPoints(user: User, points: Int) {
-        userDao.save(User(user.userId, user.userName, user.points+points))
+        userDao.save(User(user.userId, user.userName, user.wohnort, user.points+points))
     }
 }

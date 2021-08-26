@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.model.User
 import de.tudarmstadt.smartcitystudyapp.services.UserService
 import kotlinx.coroutines.launch
+import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -35,6 +36,8 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var layouts: IntArray
     private var btnNext: Button? = null
     private var userId: String? = null
+    private var username: String? = null
+    private var wohnort: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +66,13 @@ class WelcomeActivity : AppCompatActivity() {
             if (current == layouts.size) {
                 val userIdEntryField = findViewById<EditText>(R.id.user_id_entry_field)
                 userId = userIdEntryField.text.toString()
+
+                val userNameEntryField = findViewById<EditText>(R.id.user_name_entry_field)
+                username = userNameEntryField.text.toString()
+
+                val wohnortEntryField = findViewById<EditText>(R.id.city_entry_field)
+                wohnort = wohnortEntryField.text.toString()
+
                 launchHomeScreen()
             } else if (current < layouts.size) {
                 viewPager!!.currentItem = current
@@ -90,12 +100,13 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun launchHomeScreen() {
-        if (userId == null || userId!!.isEmpty()) {
+        val userIdmatch = Pattern.matches("[A-Z]{6}", userId!!)
+        if (userId == null || userId!!.isEmpty() || !userIdmatch) {
             val toast = Toast.makeText(this, R.string.user_id_not_set_toast, Toast.LENGTH_SHORT)
             toast.show()
         } else {
             this.lifecycleScope.launch {
-                userService.setUser(User(userId!!, userId!!))
+                userService.setUser(User(userId!!, username.orEmpty(), wohnort.orEmpty()))
             }
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

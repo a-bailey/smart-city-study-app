@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 data class User constructor(
     @PrimaryKey @ColumnInfo(name = "userId") val userId: String,
     @ColumnInfo(name = "userName") val userName: String,
+    @ColumnInfo(name = "wohnort") val wohnort: String,
     @ColumnInfo(name = "points") val points: Int = 0
 )

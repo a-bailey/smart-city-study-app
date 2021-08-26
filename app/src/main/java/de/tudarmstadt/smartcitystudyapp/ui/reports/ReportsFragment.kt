@@ -3,6 +3,7 @@ package de.tudarmstadt.smartcitystudyapp.ui.reports
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -26,6 +27,14 @@ class ReportsFragment : Fragment() {
         // ToDo: shared pref value does not change after edit (it's only updated after app restart)
         if (SharedPref.getNotificationStatus(view.context.applicationContext) > 0) {
             findNavController().navigate(R.id.nav_incident_submit_notification)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        view?.findViewById<Button>(R.id.ereignisse)?.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_reports_to_nav_incidents)
         }
     }
 }

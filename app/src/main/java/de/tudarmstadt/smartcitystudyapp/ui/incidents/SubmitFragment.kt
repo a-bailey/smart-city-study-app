@@ -50,10 +50,10 @@ class SubmitFragment : Fragment() {
             addAction(R.string.broadcast_network_status.toString())
         }
 
-        root.findViewById<EditText>(R.id.report_text).setText(suggestion)
+        root.findViewById<EditText>(R.id.report_text).hint = suggestion
 
         submitButton.setOnClickListener {
-            submitViewModel.sendReport(root, R.id.action_submit_to_thankyou)
+            submitViewModel.sendReport(root)
         }
 
         sendPhotoSwitch.setOnClickListener {
@@ -141,8 +141,8 @@ class SubmitFragment : Fragment() {
             DrawableCompat.setTint(buttonDrawable, ResourcesCompat.getColor(resources, color, null))
             button.background = buttonDrawable
         } else {
-            button.setBackgroundColor(resources.getColor(color));
-            button.invalidate();
+            button.setBackgroundColor(resources.getColor(color))
+            button.invalidate()
         }
     }
 }
