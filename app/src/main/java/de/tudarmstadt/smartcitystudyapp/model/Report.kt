@@ -1,6 +1,6 @@
 package de.tudarmstadt.smartcitystudyapp.model
 
-const val SOURCE_OTHER = "Eigeninitiative"
+const val SOURCE_OTHER = "Base App"
 
 data class Report(
     val userId: String,
