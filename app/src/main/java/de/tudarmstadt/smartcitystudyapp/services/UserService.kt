@@ -11,5 +11,5 @@ interface UserService {
     suspend fun getCurrentUser(): User?
     suspend fun getUserId() : String?
     suspend fun setUser(user: User)
-    suspend fun addPoints(user: User, points: Int)
+    suspend fun addPoints(user: User, points: Int, addReportCounter: Boolean)
 }

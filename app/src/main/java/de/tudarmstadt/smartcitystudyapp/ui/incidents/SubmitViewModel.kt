@@ -14,6 +14,7 @@ import de.tudarmstadt.smartcitystudyapp.MainActivity
 import de.tudarmstadt.smartcitystudyapp.R
 import de.tudarmstadt.smartcitystudyapp.model.Report
 import de.tudarmstadt.smartcitystudyapp.model.SOURCE_OTHER
+import de.tudarmstadt.smartcitystudyapp.services.PointType
 import de.tudarmstadt.smartcitystudyapp.services.ReportService
 import de.tudarmstadt.smartcitystudyapp.services.UserService
 import kotlinx.coroutines.Dispatchers
@@ -57,7 +58,7 @@ class SubmitViewModel @ViewModelInject constructor(
                             Toast.makeText(context, R.string.report_sent_success_toast, Toast.LENGTH_LONG).show()
 
                             withContext(Dispatchers.IO) {
-                                userService.addPoints(userService.getCurrentUser()!!, 320)
+                                userService.addPoints(userService.getCurrentUser()!!, PointType.USER.points, true)
                             }
 
                             view.findNavController().navigate(R.id.action_submit_to_thankyou)

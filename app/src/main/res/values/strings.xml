@@ -460,6 +460,7 @@ wirst.</string>
     <string name="profile_points_label">Punkte</string>
     <string name="profile_incidents_before">Du hast bereits </string>
     <string name="profile_incidents_after">Meldungen gemacht!</string>
+    <string name="profile_incidents_after_single">Meldung gemacht!</string>
     <string name="crone_hint">Ab 1500 Punkten bekommst du eine Krone!</string>
 
     <!-- Notification Incidents -->

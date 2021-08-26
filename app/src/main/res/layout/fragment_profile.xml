@@ -106,9 +106,9 @@
             android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:layout_marginStart="40dp"
-            android:text="@string/profile_incidents_before" />
+            android:text="@string/profile_incidents_before"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/number_incidents"
@@ -120,13 +120,13 @@
             android:text="0" />
 
         <TextView
+            android:id="@+id/number_incidents_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/number_incidents_two"
             android:layout_below="@+id/number_incidents"
             android:layout_marginStart="40dp"
-            android:textStyle="bold"
-            android:text="@string/profile_incidents_after" />
+            android:text="@string/profile_incidents_after"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"

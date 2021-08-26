@@ -58,7 +58,14 @@ class ProfileFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName
                 view?.findViewById<TextView>(R.id.vp_ort)?.text = currentUser.wohnort
-                view?.findViewById<TextView>(R.id.points)?.setText(currentUser.points.toString())
+                view?.findViewById<TextView>(R.id.points)?.text = currentUser.points.toString()
+                view?.findViewById<TextView>(R.id.number_incidents)?.text = currentUser.reports.toString()
+
+                if(currentUser.reports == 1) {
+                    view?.findViewById<TextView>(R.id.number_incidents_two)?.setText(R.string.profile_incidents_after_single)
+                } else {
+                    view?.findViewById<TextView>(R.id.number_incidents_two)?.setText(R.string.profile_incidents_after)
+                }
             }
         }
     }
