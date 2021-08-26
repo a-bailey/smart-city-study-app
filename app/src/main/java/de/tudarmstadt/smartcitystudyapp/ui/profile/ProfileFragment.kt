@@ -56,8 +56,8 @@ class ProfileFragment : Fragment() {
             currentUser = userService.getCurrentUser()
 
             withContext(Dispatchers.Main) {
-                view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName
-                view?.findViewById<TextView>(R.id.vp_ort)?.text = currentUser.wohnort
+
+                view?.findViewById<TextView>(R.id.vp_ort)?.text = currentUser!!.wohnort
                 view?.findViewById<TextView>(R.id.points)?.text = currentUser.points.toString()
                 view?.findViewById<TextView>(R.id.number_incidents)?.text = currentUser.reports.toString()
 
@@ -66,6 +66,14 @@ class ProfileFragment : Fragment() {
                 } else {
                     view?.findViewById<TextView>(R.id.number_incidents_two)?.setText(R.string.profile_incidents_after)
                 }
+                if(currentUser.points >= 1500) {
+                    view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName + " 👑"
+                } else {
+                    view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName
+                }
+
+
+
             }
         }
     }
