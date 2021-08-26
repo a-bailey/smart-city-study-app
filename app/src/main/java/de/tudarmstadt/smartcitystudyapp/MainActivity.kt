@@ -111,14 +111,6 @@ class MainActivity() : AppCompatActivity(), SharedPreferences.OnSharedPreference
             }
         }
 
-        // workaround: start service to keep push notifications alive, because android os will
-        // shut down alarm manager to reduce energy consumption
-        val fgsIntent = Intent(this, PushNotificationService::class.java)
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(fgsIntent)
-        } else {
-            startService(fgsIntent)
-        }
 
 //        val handler = Handler(Looper.getMainLooper())
 //        handler.postDelayed(object : Runnable {
