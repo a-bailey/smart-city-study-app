@@ -10,5 +10,6 @@ data class User constructor(
     @ColumnInfo(name = "userName") val userName: String,
     @ColumnInfo(name = "wohnort") val wohnort: String,
     @ColumnInfo(name = "points") val points: Int = 0,
-    @ColumnInfo(name = "reports") val reports: Int = 0
+    @ColumnInfo(name = "reports") val reports: Int = 0,
+    @ColumnInfo(name = "starttime") val starttime: Long = 0
 )

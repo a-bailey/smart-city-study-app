@@ -15,6 +15,8 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.R
 import de.tudarmstadt.smartcitystudyapp.model.ActivityEntry
+import de.tudarmstadt.smartcitystudyapp.services.UserService
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ActivitiesFragment : Fragment() {

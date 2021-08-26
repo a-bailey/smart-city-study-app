@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.model.User
 import de.tudarmstadt.smartcitystudyapp.services.UserService
 import kotlinx.coroutines.launch
+import java.util.*
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -107,7 +108,7 @@ class WelcomeActivity : AppCompatActivity() {
             toast.show()
         } else {
             this.lifecycleScope.launch {
-                userService.setUser(User(userId!!, username.orEmpty(), wohnort.orEmpty()))
+                userService.setUser(User(userId!!, username.orEmpty(), wohnort.orEmpty(), 0, 0, Calendar.getInstance().time.time))
             }
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

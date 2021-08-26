@@ -16,8 +16,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.MainActivity
 import de.tudarmstadt.smartcitystudyapp.R
 import de.tudarmstadt.smartcitystudyapp.model.User
+import de.tudarmstadt.smartcitystudyapp.services.PointType
 import de.tudarmstadt.smartcitystudyapp.services.UserService
+import de.tudarmstadt.smartcitystudyapp.ui.teamactivity.Teams
 import kotlinx.coroutines.*
+import java.util.*
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -65,8 +68,10 @@ class ProfileFragment : Fragment() {
                 }
                 if(currentUser.points >= 1500) {
                     view?.findViewById<ImageView>(R.id.profile_pic)?.setImageResource(R.drawable.profile_two)
+                    view?.findViewById<TextView>(R.id.crone_hint)?.visibility = View.INVISIBLE
                 } else {
                     view?.findViewById<ImageView>(R.id.profile_pic)?.setImageResource(R.drawable.profile_one)
+                    view?.findViewById<TextView>(R.id.crone_hint)?.visibility = View.VISIBLE
                 }
             }
         }
