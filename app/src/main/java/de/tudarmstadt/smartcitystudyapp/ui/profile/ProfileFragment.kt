@@ -6,10 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
@@ -56,7 +53,7 @@ class ProfileFragment : Fragment() {
             currentUser = userService.getCurrentUser()
 
             withContext(Dispatchers.Main) {
-
+                view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName
                 view?.findViewById<TextView>(R.id.vp_ort)?.text = currentUser!!.wohnort
                 view?.findViewById<TextView>(R.id.points)?.text = currentUser.points.toString()
                 view?.findViewById<TextView>(R.id.number_incidents)?.text = currentUser.reports.toString()
@@ -67,13 +64,10 @@ class ProfileFragment : Fragment() {
                     view?.findViewById<TextView>(R.id.number_incidents_two)?.setText(R.string.profile_incidents_after)
                 }
                 if(currentUser.points >= 1500) {
-                    view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName + " 👑"
+                    view?.findViewById<ImageView>(R.id.profile_pic)?.setImageResource(R.drawable.profile_two)
                 } else {
-                    view?.findViewById<TextView>(R.id.vp_name)?.text = currentUser!!.userName
+                    view?.findViewById<ImageView>(R.id.profile_pic)?.setImageResource(R.drawable.profile_one)
                 }
-
-
-
             }
         }
     }

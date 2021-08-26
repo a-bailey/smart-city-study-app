@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/baseline_favorite_24.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/drawable/baseline_settings_20.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/drawable/baseline_settings_24.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/drawable/exclamation_thick.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/fragment_incidents.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3255208333333333" />
