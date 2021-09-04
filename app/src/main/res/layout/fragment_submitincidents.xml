@@ -54,121 +54,131 @@
         android:layout_marginBottom="5dp"
         android:background="@color/main_blue" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/incididents_submit_description_location"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_send_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:text="Ich möchte meinen Standort übermitteln"
-        android:textColor="@color/black" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/location" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/incididents_submit_description_situation"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="255"
-        app:hintEnabled="false">
-
-        <EditText
-            android:id="@+id/report_text"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:gravity="top|start"
-            android:inputType="textMultiLine"
-            android:textColorHint="@color/grey"
-            android:lines="8"
-            android:minLines="5"
-            android:padding="0dp"
-            android:scrollbars="vertical"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/incididents_submit_description_location"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/main_blue" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_send_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:text="Ich möchte ein Foto übermitteln"
-        android:textColor="@color/black" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/incidents_button_gallery"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_send_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:text="@string/incidents_gallery_button"
-            android:textColor="@color/main_blue"
-            android:visibility="invisible" />
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:text="Ich möchte meinen Standort übermitteln"
+            android:textColor="@color/black" />
 
-        <Button
-            android:id="@+id/incidents_button_camera"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/location" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/incididents_submit_description_situation"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="255"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/report_text"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/grey"
+                android:lines="8"
+                android:minLines="5"
+                android:padding="0dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/main_blue" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_send_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:text="@string/incidents_camera_button"
-            android:textColor="@color/main_blue"
-            android:visibility="invisible" />
-    </LinearLayout>
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:text="Ich möchte ein Foto übermitteln"
+            android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/incidents_button_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:text="@string/incidients_submit_button" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/incidents_button_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/incidents_gallery_button"
+                android:textColor="@color/main_blue"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/incidents_button_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/incidents_camera_button"
+                android:textColor="@color/main_blue"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/incidents_button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/incidients_submit_button" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
