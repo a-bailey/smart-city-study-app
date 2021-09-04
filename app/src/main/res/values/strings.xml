@@ -42,8 +42,7 @@
     <string name="slide_2_description_2">Insgesamt ist das Ziel unserer App eine umfangreiche Datenbank mithilfe offener Daten der Stadt zu kreieren, um Probleme und Missstände schneller erkennen und darauf reagieren zu können.</string>
     <string name="slide_3_title">Anleitung zum \n Menü:</string>
     <string name="slide_3_description">Die wichtigsten Funktionen der App kurz erklärt:</string>
-    <string name="slide_3_description_two">Die wichtigsten Funktionen der App kurz erklärt:
-Im Reiter Ereignisse kannst du Meldungen über
+    <string name="slide_3_description_two">Im Reiter Ereignisse kannst du Meldungen über
 Probleme und Auffälligkeiten in deiner Umgebung
 machen.\n
 Falls du dir unsicher bist, was du melden könntest,
