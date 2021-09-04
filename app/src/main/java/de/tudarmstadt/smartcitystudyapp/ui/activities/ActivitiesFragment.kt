@@ -29,7 +29,7 @@ class ActivitiesFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_activities, container, false)
         val adapter = ArrayAdapter(
-            this.requireContext(), android.R.layout.simple_list_item_1, emptyList<String>().toMutableList()
+            this.requireContext(), R.layout.simple_list_item_smart_city, emptyList<String>().toMutableList()
         )
         root.findViewById<ListView>(R.id.activities_scroll_view).adapter = adapter
 

@@ -40,11 +40,6 @@ class TeamActivityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_teamactivity, container, false)
-        adapter = ArrayAdapter(
-            this.requireContext(), android.R.layout.simple_list_item_1, emptyList<String>().toMutableList()
-        )
-        root.findViewById<ListView>(R.id.activities_scroll_view).adapter = adapter
-
         return root
     }
 
@@ -54,6 +49,10 @@ class TeamActivityFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
+        adapter = ArrayAdapter(
+            this.requireContext(), R.layout.simple_list_item_smart_city, emptyList<String>().toMutableList()
+        )
+        requireActivity().findViewById<ListView>(R.id.activities_scroll_view).adapter = adapter
         ownTeam = Teams.ownTeam.copy()
         teams = Teams.teams.toMutableList()
 
@@ -95,6 +94,7 @@ class TeamActivityFragment : Fragment() {
                         "${it.name} aus ${it.location} hat bereits ${it.points.toString()} Punkte gemacht!"
                     }
                 )
+                adapter?.notifyDataSetChanged()
             }
         }
     }

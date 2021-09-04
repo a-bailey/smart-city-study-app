@@ -98,6 +98,7 @@
         android:layout_gravity="right"
         android:id="@+id/mach_mehr_punkte"
         android:layout_margin="10dp"
+
         android:text="@string/profile_button" />
 
     <RelativeLayout
@@ -111,16 +112,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:text="@string/profile_incidents_before"
+            android:textColor="@color/grey"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/number_incidents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/number"
-            android:textStyle="bold"
             android:layout_marginStart="10dp"
-            android:text="0" />
+            android:layout_toRightOf="@+id/number"
+            android:text="0"
+            android:textColor="@color/grey"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/number_incidents_two"
@@ -129,6 +132,7 @@
             android:layout_below="@+id/number_incidents"
             android:layout_marginStart="40dp"
             android:text="@string/profile_incidents_after"
+            android:textColor="@color/grey"
             android:textStyle="bold" />
 
         <TextView
@@ -138,7 +142,8 @@
             android:layout_below="@+id/number_incidents_two"
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
-            android:text="@string/crone_hint" />
+            android:text="@string/crone_hint"
+            android:textColor="@color/grey" />
 
         <View
             android:layout_width="match_parent"

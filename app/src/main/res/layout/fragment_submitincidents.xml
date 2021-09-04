@@ -110,6 +110,7 @@
             android:layout_margin="10dp"
             android:gravity="top|start"
             android:inputType="textMultiLine"
+            android:textColorHint="@color/grey"
             android:lines="8"
             android:minLines="5"
             android:padding="0dp"

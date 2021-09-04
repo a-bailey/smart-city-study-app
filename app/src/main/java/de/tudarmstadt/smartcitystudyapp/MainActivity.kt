@@ -26,7 +26,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import de.tudarmstadt.smartcitystudyapp.helper.ConnectionType
 import de.tudarmstadt.smartcitystudyapp.helper.NetworkMonitor
 import de.tudarmstadt.smartcitystudyapp.helper.SharedPref
-import de.tudarmstadt.smartcitystudyapp.services.PushNotificationService
 import de.tudarmstadt.smartcitystudyapp.services.UserService
 import kotlinx.coroutines.launch
 import javax.inject.Inject
